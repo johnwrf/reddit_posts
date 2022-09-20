@@ -78,6 +78,7 @@ brew install --cask anaconda
 ## Reddit No Credentials API Reference
 
 #### Reddit format
+
 https://www.reddit.com/r/{listing}.json?limit={count}&t={timeframe} 
 listing = controversial, best, hot, new, popular, random, rising, top 
 timeframe = hour, day, week, month, year, all 
