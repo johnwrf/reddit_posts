@@ -28,7 +28,7 @@ The following video walkthrough goes over the application and shows a quick demo
 [Video Walkthrough](https://www.youtube.com/playlist?list=PLxxG0lyrMKuxo3kUOBJQ3aOo46JHGfult)
 
 And below is a system diagram of the application
-[System Diagram](https://github.com/johnwrf/reddit_posts/blob/main/system_diagram.png)!
+![System Diagram](https://github.com/johnwrf/reddit_posts/blob/main/system_diagram.png?raw=true)
 
 
 ## Usage Instructions
