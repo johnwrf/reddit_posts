@@ -24,6 +24,12 @@ For each program execution, the following results are printed:
 2. Posts that are no longer within the top 75 posts
 3. Posts that had a vote count (score) change and by how much
 
+The following video walkthrough goes over the application and shows a quick demo 
+[Video Walkthrough](https://www.youtube.com/playlist?list=PLxxG0lyrMKuxo3kUOBJQ3aOo46JHGfult)
+
+And below is a system diagram of the application 
+![System Diagram](https://github.com/johnwrf/reddit_posts/blob/dev/system_diagram.png)
+
 ## Usage Instructions
 
 ### Running the python application
