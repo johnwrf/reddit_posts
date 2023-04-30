@@ -38,11 +38,14 @@ save posts to disk (for next execution)
 use dataframes to compare latest posts against last program run
 """
 class RedditProcessor:
+    
+    
     def __init__(self):
         self.reddit_new = RedditPosts(listing=NEW_POSTS_LISTING, limit=NEW_POSTS_COUNT, timeframe="hour")
         self.reddit_top = RedditPosts(listing=TOP_POSTS_LISTING, limit=TOP75_POSTS_COUNT, timeframe="hour")
         self.df_new_posts = self.load_posts(self.reddit_new, NEW_POSTS_LISTING)
         self.df_top_posts = self.load_posts(self.reddit_top, TOP_POSTS_LISTING)
+
 
     def load_posts(self, reddit_posts, listing ):
         logger.info(f"====> {listing} POSTS:")
@@ -61,6 +64,7 @@ class RedditProcessor:
         df = pd.merge(df_latest, df_previous, on=['id'], how="outer", indicator=True)
         return df
 
+
     def get_new_posts(self):
         df_new_since_last = self.df_new_posts[self.df_new_posts['_merge'] == 'left_only']
         df_new_since_last = df_new_since_last.rename(POST_COLUMNS_X, axis=1)
@@ -68,6 +72,7 @@ class RedditProcessor:
         logger.info(f"============> {df_new_since_last.shape[0]} LATEST NEW POSTS")
         logger.info(df_new_since_last[['id','created_utc','score']].head)
         return df_new_since_last
+      
         
     def get_not_top75_posts(self):
         df_no_longer_top75 = self.df_top_posts[self.df_top_posts['_merge'] == 'right_only']
@@ -77,6 +82,7 @@ class RedditProcessor:
         logger.info(f"============> {df_no_longer_top75.shape[0]} POSTS NO LONGER TOP 75")
         logger.info(df_no_longer_top75[['id','created_utc','score']].head)
         return df_no_longer_top75
+    
     
     def get_scores_changed_posts(self):
         df_scores = pd.concat([self.df_top_posts, self.df_new_posts])
